@@ -64,9 +64,6 @@ get_current_branch() {
     # Check Git version to determine the appropriate command to get current branch
     if [ "$retval" == "true" ]; then
         current_branch=$(git rev-parse --abbrev-ref HEAD)
-        if ! "$current_branch" > /dev/null; then
-            echo "Error: Find your .git directory"
-        fi
     else
         current_branch=$(git symbolic-ref --short HEAD)
     fi
